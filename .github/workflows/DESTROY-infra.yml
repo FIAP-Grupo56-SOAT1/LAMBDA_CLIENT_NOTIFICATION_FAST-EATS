@@ -38,14 +38,14 @@ jobs:
       - name: Upload Lambda JAR
         uses: actions/upload-artifact@v3
         with:
-          name: lambda_sts-jar
+          name: lambda_notification-jar
           path: ./app/target/lambda_notification-1.0.0.jar
 
       - name: Download a Build Artifact
         uses: actions/download-artifact@v3.0.2
 
         with:
-          name: lambda_sts-jar
+          name: lambda_notification-jar
           path: ./app/target/
 
       - name: Configure AWS Credentials
