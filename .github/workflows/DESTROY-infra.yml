@@ -39,7 +39,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: lambda_sts-jar
-          path: ./app/target/lambda_sts-1.0.0.jar
+          path: ./app/target/lambda_notification-1.0.0.jar
 
       - name: Download a Build Artifact
         uses: actions/download-artifact@v3.0.2
