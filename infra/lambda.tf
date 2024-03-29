@@ -26,7 +26,10 @@ resource "aws_lambda_function" "lambda_notification" {
     variables = {
 
       QUEUE_URL : "https://sqs.us-east-1.amazonaws.com/730335661438/notificar-cliente"
-
+      MAIL_PORT : "587"
+      MAIL_HOST : "smtp.gmail.com"
+      SENDER_MAIL : jsondecode(data.aws_secretsmanager_secret_version.credentials_sts.secret_string)["send_email"]
+      SENDER_MAIL_PASSWORD: jsondecode(data.aws_secretsmanager_secret_version.credentials_sts.secret_string)["senha_email"]
     }
   }
 
