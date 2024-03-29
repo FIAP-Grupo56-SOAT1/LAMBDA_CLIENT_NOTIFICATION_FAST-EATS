@@ -1,9 +1,9 @@
 output "lambdas" {
   value = [{
-    arn           = aws_lambda_function.lambda_sts.arn
-    name          = aws_lambda_function.lambda_sts.function_name
-    description   = aws_lambda_function.lambda_sts.description
-    version       = aws_lambda_function.lambda_sts.version
-    last_modified = aws_lambda_function.lambda_sts.last_modified
+    arn           = aws_lambda_function.lambda_notification.arn
+    name          = aws_lambda_function.lambda_notification.function_name
+    description   = aws_lambda_function.lambda_notification.description
+    version       = aws_lambda_function.lambda_notification.version
+    last_modified = aws_lambda_function.lambda_notification.last_modified
   }]
 }

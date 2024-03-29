@@ -6,13 +6,13 @@ variable "aws_region" {
 variable "lambda_function_name" {
   description = "LAMBDA Function name"
   type        = string
-  default     = "lambda_sts"
+  default     = "lambda_notification"
 }
 
 variable "lambda_memory" {
   description = "Lambda max memory size"
   type        = number
-  default     = 512
+  default     = 256
 }
 
 variable "lambda_runtime" {
@@ -24,7 +24,7 @@ variable "lambda_runtime" {
 variable "lambda_handler" {
   description = "Lambda handler"
   type        = string
-  default     = "br.com.fiap.festeat.sts.AutenticarHandler::handleRequest"
+  default     = "br.com.fiap.fasteats.notification.NotificationFunctionHandler::handleRequest"
 }
 
 ######### OBS: a execution role acima foi trocada por LabRole devido a restricoes de permissao na conta da AWS Academy ########
@@ -42,7 +42,7 @@ variable "timeout" {
 variable "description" {
   description = "Descrição do lambda"
   type        = string
-  default     = "lambda para sts de token - fiap 56"
+  default     = "lambda  de notificação cliente - fiap 56"
 }
 
 variable "version_lambda" {
@@ -51,23 +51,13 @@ variable "version_lambda" {
   default     = "1.0.0"
 }
 
-
-variable "client_id" {
-  description = "client_id"
-  type        = string
-  default     = ""
+# Event source from SQS
+variable "terraform_queue_arn" {
+  default = "arn:aws:sqs:us-east-1:730335661438:notificar-cliente"
 }
 
-variable "user_cognito" {
-  description = "user_cognito"
-  type        = string
-  default     = "fiap56soat1"
-}
-variable "password_cognito" {
-  description = "password_cognito"
-  type        = string
-  default     = ""
-}
+
+
 
 
 
