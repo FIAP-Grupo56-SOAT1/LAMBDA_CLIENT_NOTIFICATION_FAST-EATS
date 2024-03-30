@@ -72,8 +72,7 @@ public class NotificationFunctionHandler implements RequestHandler<SQSEvent, Str
                 Message.RecipientType.TO, InternetAddress.parse(notificarClienteRequest.getEmail()));
         message.setSubject(notificarClienteRequest.getTitulo());
 
-        String msg = "Status do pagamento: " + notificarClienteRequest.getStatus() + "<br>" +
-                "Mensagem: " + notificarClienteRequest.getMensagem() + "<br>";
+        String msg = notificarClienteRequest.getMensagem();
 
         MimeBodyPart mimeBodyPart = new MimeBodyPart();
         mimeBodyPart.setContent(msg, "text/html; charset=utf-8");
